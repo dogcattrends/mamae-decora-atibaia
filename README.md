@@ -18,3 +18,8 @@ View your app in AI Studio: https://ai.studio/apps/6e8e7c54-8e9a-4ab4-a267-4ec6b
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Deploy note
+
+- Antes de rodar o `vercel --prod`, confirme que `npm run build` completa sem erros (já está verde).
+- Se o deploy antigo exibiu 404, o novo push + deploy substituirá o build atual; o domínio `https://mamae-decora-atibaia.vercel.app/` deve começar a renderizar a home após o `vercel --prod` concluir.
