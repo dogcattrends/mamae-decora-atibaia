@@ -14,6 +14,7 @@ export default function Navbar() {
   useEffect(() => {
     setMounted(true);
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -83,36 +84,38 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-2xl border-b border-white/10 p-8 md:hidden"
-          >
-            <div className="flex flex-col gap-6">
-              {navLinks.map((link) => (
+      {mounted && (
+        <AnimatePresence initial={false}>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-2xl border-b border-white/10 p-8 md:hidden"
+            >
+              <div className="flex flex-col gap-6">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-2xl font-display font-medium text-white/80 hover:text-pink-500 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
                 <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-display font-medium text-white/80 hover:text-pink-500 transition-colors"
+                  href={CONTACT_INFO.whatsapp}
+                  target="_blank"
+                  className="bg-pink-500 text-white text-center py-4 rounded-2xl font-bold"
                 >
-                  {link.name}
+                  Falar no WhatsApp
                 </Link>
-              ))}
-              <Link
-                href={CONTACT_INFO.whatsapp}
-                target="_blank"
-                className="bg-pink-500 text-white text-center py-4 rounded-2xl font-bold"
-              >
-                Falar no WhatsApp
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </nav>
   );
 }

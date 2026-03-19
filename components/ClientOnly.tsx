@@ -4,9 +4,13 @@ import { useEffect, useState } from 'react';
 
 interface ClientOnlyProps {
   children: React.ReactNode;
+  fallback?: React.ReactNode;
 }
 
-export default function ClientOnly({ children }: ClientOnlyProps) {
+export default function ClientOnly({
+  children,
+  fallback = null,
+}: ClientOnlyProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -14,7 +18,7 @@ export default function ClientOnly({ children }: ClientOnlyProps) {
   }, []);
 
   if (!mounted) {
-    return null;
+    return <>{fallback}</>;
   }
 
   return <>{children}</>;
