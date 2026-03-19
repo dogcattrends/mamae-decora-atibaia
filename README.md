@@ -19,6 +19,8 @@ View your app in AI Studio: https://ai.studio/apps/6e8e7c54-8e9a-4ab4-a267-4ec6b
 3. Run the app:
    `npm run dev`
 
+<!-- Trigger Vercel redeploy -->
+
 ## Deploy note
 
 - Antes de rodar o `vercel --prod`, confirme que `npm run build` completa sem erros (já está verde).
