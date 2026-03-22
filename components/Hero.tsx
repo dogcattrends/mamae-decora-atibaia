@@ -43,10 +43,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.85] mb-8"
+          className="font-display text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.92] mb-8"
         >
           SONHOS EM <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-pink-300 to-white italic font-light">
+          <span className="inline-block pb-[0.08em] text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-pink-300 to-white italic font-light">
             Detalhes
           </span>
         </motion.h1>

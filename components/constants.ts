@@ -21,7 +21,7 @@ export const THEMES = [
   { id: 12, name: 'Stitch e Angel', category: 'Personagens', image: '/stitch-e-angel.png' },
   { id: 13, name: 'Pool Party', category: 'Infantil', image: '/pool-party.png' },
   { id: 14, name: 'Cabaret', category: 'Adulto', image: '/cabaret.png' },
-  { id: 15, name: 'Dragon Ball Z', category: 'Personagens', image: '/dragon-ball-z.png' },
+  { id: 15, name: 'Stitch', category: 'Personagens', image: '/dragon-ball-z.png' },
   { id: 16, name: 'Hello Kitty', category: 'Personagens', image: '/hello-kitty.png' },
   { id: 17, name: 'Hot Wheels', category: 'Personagens', image: '/hotwells.png' },
   { id: 18, name: 'Magali', category: 'Personagens', image: '/magali.png' },
