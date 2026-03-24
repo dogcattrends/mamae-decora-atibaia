@@ -36,15 +36,16 @@ export const THEMES = [
   { id: 27, name: 'Baby Looney Tunes', category: 'Infantil', image: '/baby-looney-tunes.png' },
   { id: 28, name: 'Branca de Neve', category: 'Personagens', image: '/branca-de-neve.png' },
   { id: 29, name: 'Cebolinha', category: 'Personagens', image: '/cebolinha.png' },
-  { id: 30, name: 'Jardim das Margaridas', category: 'Batizado', image: '/chá-bebe-jardim-das-margaridas.png' },
+  { id: 30, name: 'Margaridas', category: 'Batizado', image: '/chá-bebe-jardim-das-margaridas.png' },
   { id: 31, name: 'O Maior Pintor do Mundo', category: 'Infantil', image: '/o-maior-pintor-do-mundo.png' },
   { id: 32, name: 'São Paulo FC', category: 'Adulto', image: '/Sao-Paulo-Futebol-Clube.png' },
+  { id: 33, name: 'Aniversário Adulto', category: 'Adulto', image: '/aniversario-adulto.jpg' },
 ];
 
 export const STATS = [
   { label: 'Temas Exclusivos', value: '300+' },
   { label: 'Festas Realizadas', value: '2.000+' },
-  { label: 'Anos de História', value: '10' },
+  { label: 'Anos de História', value: '5' },
   { label: 'Clientes Felizes', value: '1.500+' },
 ];
 
