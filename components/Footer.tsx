@@ -86,7 +86,12 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-12 border-t border-white/5 text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold">
           <div>© 2026 Mamãe Decora Atibaia. Todos os direitos reservados.</div>
-          <div>Desenvolvido com ❤️ em Atibaia</div>
+          <div>
+            Desenvolvido por{' '}
+            <a href="https://wa.me/5511968771362" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition-colors">
+              Arthur Ribeker
+            </a>
+          </div>
         </div>
       </div>
     </footer>
