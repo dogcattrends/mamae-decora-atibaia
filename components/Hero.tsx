@@ -46,7 +46,7 @@ export default function Hero() {
           className="font-display text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.92] mb-8"
         >
           SONHOS EM <br />
-          <span className="inline-block pb-[0.08em] text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-pink-300 to-white italic font-light">
+          <span className="inline-block pb-[0.08em] pr-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-pink-300 to-white italic font-light">
             Detalhes
           </span>
         </motion.h1>
