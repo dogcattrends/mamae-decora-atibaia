@@ -39,7 +39,7 @@ export const THEMES = [
   { id: 30, name: 'Margaridas', category: 'Batizado', image: '/chá-bebe-jardim-das-margaridas.png' },
   { id: 31, name: 'O Maior Pintor do Mundo', category: 'Infantil', image: '/o-maior-pintor-do-mundo.png' },
   { id: 32, name: 'São Paulo FC', category: 'Adulto', image: '/Sao-Paulo-Futebol-Clube.png' },
-  { id: 33, name: 'Aniversário Adulto', category: 'Adulto', image: '/aniversario-adulto.jpg' },
+  { id: 33, name: 'Aniversário Adulto', category: 'Adulto', image: '/aniversario-adulto.png' },
 ];
 
 export const STATS = [
