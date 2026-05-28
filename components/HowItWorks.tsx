@@ -28,7 +28,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="como-funciona" className="py-24">
+    <section id="como-funciona" className="py-16 md:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className="font-display text-4xl md:text-6xl font-black mb-4">
@@ -52,7 +52,7 @@ export default function HowItWorks() {
               transition={{ delay: index * 0.1 }}
               className="relative z-10 flex flex-col items-center text-center group"
             >
-              <div className="w-20 h-20 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:border-pink-500/50 group-hover:bg-pink-500/10 transition-all duration-500">
+              <div className="relative w-20 h-20 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:border-pink-500/50 group-hover:bg-pink-500/10 transition-all duration-500">
                 <step.icon className="w-8 h-8 text-white group-hover:text-pink-500 transition-colors" />
                 <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-white text-black font-black flex items-center justify-center text-xs">
                   0{index + 1}

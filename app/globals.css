@@ -9,6 +9,18 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Focus ring global — acessibilidade para navegação por teclado */
+  :focus-visible {
+    outline: 2px solid #ec4899;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* Remove outline padrão do browser apenas para mouse, mantém para teclado */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 @keyframes slow-zoom {
@@ -27,6 +39,6 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

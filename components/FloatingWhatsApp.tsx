@@ -18,6 +18,7 @@ export default function FloatingWhatsApp() {
       <Link
         href={CONTACT_INFO.whatsapp}
         target="_blank"
+        aria-label="Falar com a Ana no WhatsApp"
         className="relative group flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-[0_10px_40px_rgba(37,211,102,0.4)] transition-all active:scale-95"
       >
         {/* Pulse Effect Background */}

@@ -21,7 +21,7 @@ export const THEMES = [
   { id: 12, name: 'Stitch e Angel', category: 'Personagens', image: '/stitch-e-angel.png' },
   { id: 13, name: 'Pool Party', category: 'Infantil', image: '/pool-party.png' },
   { id: 14, name: 'Cabaret', category: 'Adulto', image: '/cabaret.png' },
-  { id: 15, name: 'Stitch', category: 'Personagens', image: '/dragon-ball-z.png' },
+  { id: 15, name: 'Dragon Ball Z', category: 'Personagens', image: '/dragon-ball-z.png' },
   { id: 16, name: 'Hello Kitty', category: 'Personagens', image: '/hello-kitty.png' },
   { id: 17, name: 'Hot Wheels', category: 'Personagens', image: '/hotwells.png' },
   { id: 18, name: 'Magali', category: 'Personagens', image: '/magali.png' },
@@ -69,5 +69,25 @@ export const FAQS = [
   {
     question: 'Como faço para reservar um tema?',
     answer: 'A reserva é feita diretamente pelo nosso WhatsApp. Solicitamos um sinal para garantir a data e o restante é pago na retirada.',
+  },
+  {
+    question: 'Vocês atendem fora de Atibaia?',
+    answer: 'Sim! Atendemos toda a região: Mairiporã, Bragança Paulista, Jarinu, Itatiba e cidades vizinhas. Para retiradas fora de Atibaia, consulte condições no WhatsApp.',
+  },
+  {
+    question: 'Com quanto tempo de antecedência devo reservar?',
+    answer: 'Recomendamos reservar com pelo menos 2 a 4 semanas de antecedência, especialmente para datas de alta demanda (sábados, feriados, férias escolares). Temas muito populares costumam ser reservados com até 2 meses de antecedência.',
+  },
+  {
+    question: 'Quais formas de pagamento são aceitas?',
+    answer: 'Aceitamos Pix, dinheiro e transferência bancária. O sinal de reserva pode ser pago via Pix e o restante na retirada do kit.',
+  },
+  {
+    question: 'O kit cabe em um carro comum?',
+    answer: 'Sim! Todos os nossos kits foram especialmente pensados para caber em carros de passeio. As peças são embaladas com cuidado em caixas e sacos organizados para facilitar o transporte.',
+  },
+  {
+    question: 'Posso escolher um tema que não está no catálogo?',
+    answer: 'Sim! Temos mais de 300 temas disponíveis. Se não encontrar o que procura no site, entre em contato pelo WhatsApp — é muito provável que tenhamos ou consigamos criar para você.',
   },
 ];

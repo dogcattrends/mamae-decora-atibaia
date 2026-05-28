@@ -11,15 +11,17 @@ const kits = [
     id: 'pocket',
     name: 'Kit Pocket',
     range: [0, 15],
+    price: 'A partir de R$149',
     description: 'Ideal para o famoso "só um bolinho" em áreas gourmet ou salas de estar.',
     includes: ['Móveis Compactos', 'Painel Redondo', 'Suportes para Doces', 'Personagens do Tema'],
-    color: 'border-blue-500/20 bg-blue-500/5',
-    accent: 'text-blue-400',
+    color: 'border-white/10 bg-white/[0.02]',
+    accent: 'text-pink-300',
   },
   {
     id: 'standard',
     name: 'Kit Standard',
     range: [16, 50],
+    price: 'A partir de R$249',
     description: 'O queridinho! Perfeito para salões de festas e garagens amplas.',
     includes: ['Trio de Cilindros', 'Painel Estruturado', 'Cenografia Temática', 'Acessórios Completos'],
     color: 'border-pink-500/40 bg-pink-500/5',
@@ -30,10 +32,11 @@ const kits = [
     id: 'premium',
     name: 'Kit Premium',
     range: [51, 200],
+    price: 'A partir de R$399',
     description: 'Para quem busca impacto visual e preenchimento de grandes espaços.',
     includes: ['Mobiliário Variado', 'Painel Romano/Trio', 'Cenografia de Chão', 'Tapete e Adereços'],
-    color: 'border-purple-500/20 bg-purple-500/5',
-    accent: 'text-purple-400',
+    color: 'border-pink-500/20 bg-pink-500/[0.03]',
+    accent: 'text-pink-400',
   },
 ];
 
@@ -45,7 +48,7 @@ export default function PartyCalculator() {
   ) || kits[1];
 
   return (
-    <section id="calculadora" className="py-24 bg-[#080808]">
+    <section id="calculadora" className="py-16 md:py-24 bg-[#080808] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-6xl font-black mb-4">
@@ -103,7 +106,8 @@ export default function PartyCalculator() {
               <span className={`text-sm font-black uppercase tracking-widest mb-2 block ${recommendedKit.accent}`}>
                 Recomendação Ideal
               </span>
-              <h3 className="text-4xl font-display font-black mb-4">{recommendedKit.name}</h3>
+              <h3 className="text-4xl font-display font-black mb-2">{recommendedKit.name}</h3>
+              <p className={`text-lg font-black mb-3 ${recommendedKit.accent}`}>{recommendedKit.price}</p>
               <p className="text-white/60 leading-relaxed">{recommendedKit.description}</p>
             </div>
 
@@ -119,7 +123,7 @@ export default function PartyCalculator() {
             <Link
               href={`${CONTACT_INFO.whatsapp}?text=Olá! A calculadora me recomendou o ${recommendedKit.name} para ${guests} pessoas. Gostaria de consultar a disponibilidade.`}
               target="_blank"
-              className="w-full bg-white text-black py-5 rounded-2xl font-black text-center block hover:bg-pink-500 hover:text-white transition-all"
+              className="w-full bg-pink-500 text-white py-5 rounded-2xl font-black text-center block hover:bg-pink-600 transition-all active:scale-95"
             >
               CONSULTAR DISPONIBILIDADE
             </Link>

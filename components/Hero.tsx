@@ -2,11 +2,19 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import { ChevronRight, Calendar } from 'lucide-react';
+import { ChevronRight, Calendar, Flame } from 'lucide-react';
 import Link from 'next/link';
 import { CONTACT_INFO } from './constants';
 
+const MONTHS_PT = [
+  'janeiro','fevereiro','março','abril','maio','junho',
+  'julho','agosto','setembro','outubro','novembro','dezembro',
+];
+
 export default function Hero() {
+  const month = MONTHS_PT[new Date().getMonth()];
+  const nextMonth = MONTHS_PT[(new Date().getMonth() + 1) % 12];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image with Overlay */}
@@ -24,19 +32,28 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+        {/* Urgência */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
-          </span>
-          <span className="text-xs font-bold uppercase tracking-widest text-white/80">
-            Agenda Aberta para 2026 em Atibaia
-          </span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+            </span>
+            <span className="text-xs font-bold uppercase tracking-widest text-white/80">
+              Agenda Aberta para 2026 em Atibaia
+            </span>
+          </div>
+          <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-pink-500/20 border border-pink-500/30 backdrop-blur-md">
+            <Flame className="w-3.5 h-3.5 text-pink-400" />
+            <span className="text-xs font-bold uppercase tracking-widest text-pink-300">
+              Últimas datas para {month}
+            </span>
+          </div>
         </motion.div>
 
         <motion.h1
@@ -55,10 +72,20 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-2xl mx-auto text-lg md:text-xl text-white/60 leading-relaxed mb-12"
+          className="max-w-2xl mx-auto text-lg md:text-xl text-white/60 leading-relaxed mb-4"
         >
-          A maior variedade de temas <strong>Pegue e Monte</strong> de Atibaia. 
+          A maior variedade de temas <strong>Pegue e Monte</strong> de Atibaia.
           Kits profissionais que você mesma monta e transforma sua festa em um evento inesquecível.
+        </motion.p>
+
+        {/* Faixa de preço */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-sm text-white/40 mb-10"
+        >
+          Kits a partir de <span className="text-pink-400 font-bold">R$149</span> · Reserve para {nextMonth} agora
         </motion.p>
 
         <motion.div

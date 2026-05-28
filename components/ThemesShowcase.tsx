@@ -22,7 +22,7 @@ export default function ThemesShowcase() {
   }, [search, activeCategory]);
 
   return (
-    <section id="acervo" className="py-24">
+    <section id="acervo" className="py-16 md:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>

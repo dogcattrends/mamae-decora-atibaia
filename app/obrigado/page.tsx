@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { CheckCircle, ArrowLeft, Instagram, MessageCircle } from 'lucide-react';
+import { CheckCircle, ArrowLeft, Instagram, MessageCircle, Download, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { CONTACT_INFO } from '@/components/constants';
 
@@ -30,10 +30,35 @@ export default function Obrigado() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-white/60 text-lg mb-12 leading-relaxed"
+          className="text-white/60 text-lg mb-8 leading-relaxed"
         >
-          Seus dados foram enviados com sucesso. Em breve você receberá seu guia exclusivo no e-mail. Que tal agilizar seu orçamento agora mesmo?
+          Seus dados foram enviados com sucesso. Verifique seu e-mail — enviamos seu cupom de 10% OFF e o link do guia para você.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="bg-white/[0.03] border border-pink-500/30 rounded-2xl p-6 mb-8 text-left"
+        >
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center shrink-0">
+              <FileText className="w-6 h-6 text-pink-400" />
+            </div>
+            <div className="flex-1">
+              <h2 className="font-bold text-white mb-1">Guia de Planejamento de Festas</h2>
+              <p className="text-white/50 text-sm mb-4">Checklist · Passo a passo de montagem · 5 dicas de ouro · Cupom exclusivo</p>
+              <a
+                href="/api/guia-pdf"
+                download="guia-planejamento-festas-mamaedecora.pdf"
+                className="inline-flex items-center gap-2 bg-pink-500 text-white px-5 py-2.5 rounded-xl font-black text-sm hover:bg-pink-600 transition-all"
+              >
+                <Download className="w-4 h-4" />
+                Baixar PDF Grátis
+              </a>
+            </div>
+          </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
           <Link

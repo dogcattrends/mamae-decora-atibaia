@@ -16,27 +16,27 @@ const differentials = [
     description: 'Peças selecionadas, limpas e sempre renovadas para garantir o brilho da sua festa.',
     icon: Heart,
     className: 'md:col-span-2 bg-white/[0.02] border-white/10',
-    iconColor: 'text-red-400',
+    iconColor: 'text-pink-400',
   },
   {
     title: 'Rapidez no Atendimento',
     description: 'Orçamentos rápidos e consultoria para ajudar você a escolher o melhor kit.',
     icon: Clock,
     className: 'md:col-span-1 bg-white/[0.02] border-white/10',
-    iconColor: 'text-blue-400',
+    iconColor: 'text-pink-300',
   },
   {
     title: 'Segurança e Higiene',
     description: 'Todas as peças são higienizadas rigorosamente após cada locação.',
     icon: ShieldCheck,
     className: 'md:col-span-1 bg-white/[0.02] border-white/10',
-    iconColor: 'text-emerald-400',
+    iconColor: 'text-pink-500',
   },
 ];
 
 export default function BentoDifferentials() {
   return (
-    <section className="py-24 bg-[#080808]">
+    <section className="py-16 md:py-24 bg-[#080808] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16">
           <h2 className="font-display text-4xl md:text-6xl font-black mb-4">

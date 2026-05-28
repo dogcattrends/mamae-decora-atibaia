@@ -74,7 +74,7 @@ export default function Footer() {
             {/* Map Placeholder */}
             <div className="mt-8 h-32 rounded-2xl bg-white/5 border border-white/10 overflow-hidden relative grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.625345634567!2d-46.55!3d-23.12!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDA3JzEyLjAiUyA0NsKwMzMnMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
+                src="https://maps.google.com/maps?q=Jardim+Cerejeiras,+Atibaia,+SP,+12951-420,+Brasil&output=embed&hl=pt-BR"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -85,8 +85,8 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-12 border-t border-white/5 text-[10px] uppercase tracking-[0.3em] text-white/20 font-bold">
-          <div>© 2026 Mamãe Decora Atibaia. Todos os direitos reservados.</div>
-          <div>
+          <div className="text-white/40">© 2026 Mamãe Decora Atibaia. Todos os direitos reservados.</div>
+          <div className="text-white/40">
             Desenvolvido por{' '}
             <a href="https://wa.me/5511968771362" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition-colors">
               Arthur Ribeker
