@@ -3,33 +3,8 @@
 import { motion } from 'motion/react';
 import { Star, Quote, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
-
-const testimonials = [
-  {
-    name: 'Patrícia Lima',
-    role: 'Mãe do Theo',
-    initials: 'PL',
-    avatarColor: 'from-pink-500 to-rose-400',
-    content: 'O kit Batizado estava impecável! Tudo muito limpo e bem embalado. A montagem foi super tranquila e o resultado final parecia decoração de buffet caro.',
-    theme: 'Batizado',
-  },
-  {
-    name: 'Juliana Mendes',
-    role: 'Mãe da Alice',
-    initials: 'JM',
-    avatarColor: 'from-pink-400 to-fuchsia-500',
-    content: 'Aluguei o tema Frozen e as crianças ficaram encantadas. A Ana é super atenciosa e me ajudou a escolher o kit certo para o tamanho da minha sala.',
-    theme: 'Frozen',
-  },
-  {
-    name: 'Renata Souza',
-    role: 'Mãe do Lucas',
-    initials: 'RS',
-    avatarColor: 'from-fuchsia-500 to-pink-600',
-    content: 'Melhor custo-benefício de Atibaia. As peças são de muita qualidade e o sistema de pegue e monte facilita demais a vida de quem quer economizar.',
-    theme: 'Mundo Bita',
-  },
-];
+import Image from 'next/image';
+import { TESTIMONIALS } from '@/lib/testimonials';
 
 export default function Testimonials() {
   return (
@@ -58,7 +33,7 @@ export default function Testimonials() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((item, index) => (
+          {TESTIMONIALS.map((item, index) => (
             <motion.div
               key={item.name}
               initial={{ opacity: 0, y: 20 }}
@@ -80,8 +55,12 @@ export default function Testimonials() {
               </p>
 
               <div className="flex items-center gap-4">
-                <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${item.avatarColor} flex items-center justify-center text-white font-black text-sm shrink-0`}>
-                  {item.initials}
+                <div className={`relative w-12 h-12 overflow-hidden rounded-full bg-gradient-to-br ${item.avatarColor} flex items-center justify-center text-white font-black text-sm shrink-0`}>
+                  {item.image ? (
+                    <Image src={item.image} alt={`Foto de ${item.name}`} fill className="object-cover" />
+                  ) : (
+                    item.initials
+                  )}
                 </div>
                 <div>
                   <div className="font-bold text-lg leading-tight">{item.name}</div>

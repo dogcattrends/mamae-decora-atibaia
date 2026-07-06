@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { STATS } from './constants';
+import { STATS } from '@/lib/stats';
 
 export default function Stats() {
   return (

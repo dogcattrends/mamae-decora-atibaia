@@ -51,6 +51,7 @@ export default function Obrigado() {
               <a
                 href="/api/guia-pdf"
                 download="guia-planejamento-festas-mamaedecora.pdf"
+                data-download-origin="thank_you_page"
                 className="inline-flex items-center gap-2 bg-pink-500 text-white px-5 py-2.5 rounded-xl font-black text-sm hover:bg-pink-600 transition-all"
               >
                 <Download className="w-4 h-4" />
@@ -64,6 +65,7 @@ export default function Obrigado() {
           <Link
             href={CONTACT_INFO.whatsapp}
             target="_blank"
+            data-whatsapp-origin="thank_you_page"
             className="flex items-center justify-center gap-3 bg-[#25D366] text-white py-5 rounded-2xl font-black hover:scale-105 transition-transform"
           >
             <MessageCircle className="w-6 h-6" />

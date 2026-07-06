@@ -14,7 +14,7 @@ Nomes sugeridos:
 - stitch-e-angel.png
 - pool-party.png
 - cabaret.png
-- dragon-ball-z.png
+- stitch.png
 - hello-kitty.png
 - hotwells.png
 - magali.png

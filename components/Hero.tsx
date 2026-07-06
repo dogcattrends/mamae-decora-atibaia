@@ -5,15 +5,18 @@ import Image from 'next/image';
 import { ChevronRight, Calendar, Flame } from 'lucide-react';
 import Link from 'next/link';
 import { CONTACT_INFO } from './constants';
-
-const MONTHS_PT = [
-  'janeiro','fevereiro','março','abril','maio','junho',
-  'julho','agosto','setembro','outubro','novembro','dezembro',
-];
+import { useEffect, useState } from 'react';
+import { getUrgencyCopy } from '@/lib/date-copy';
 
 export default function Hero() {
-  const month = MONTHS_PT[new Date().getMonth()];
-  const nextMonth = MONTHS_PT[(new Date().getMonth() + 1) % 12];
+  const [urgencyCopy, setUrgencyCopy] = useState<ReturnType<typeof getUrgencyCopy> | null>(null);
+
+  useEffect(() => {
+    const updateCopy = () => setUrgencyCopy(getUrgencyCopy(new Date()));
+    updateCopy();
+    const interval = window.setInterval(updateCopy, 60 * 60 * 1000);
+    return () => window.clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -45,13 +48,13 @@ export default function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
             </span>
             <span className="text-xs font-bold uppercase tracking-widest text-white/80">
-              Agenda Aberta para 2026 em Atibaia
+              {urgencyCopy ? `Agenda aberta para ${urgencyCopy.year} em Atibaia` : 'Agenda aberta em Atibaia'}
             </span>
           </div>
           <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-pink-500/20 border border-pink-500/30 backdrop-blur-md">
             <Flame className="w-3.5 h-3.5 text-pink-400" />
             <span className="text-xs font-bold uppercase tracking-widest text-pink-300">
-              Últimas datas para {month}
+              {urgencyCopy ? `Últimas datas para ${urgencyCopy.currentMonth}` : 'Consulte as próximas datas'}
             </span>
           </div>
         </motion.div>
@@ -85,7 +88,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-sm text-white/40 mb-10"
         >
-          Kits a partir de <span className="text-pink-400 font-bold">R$149</span> · Reserve para {nextMonth} agora
+          Kits a partir de <span className="text-pink-400 font-bold">R$149</span>
+          {urgencyCopy ? ` · Reserve para ${urgencyCopy.nextMonth} agora` : ''}
         </motion.p>
 
         <motion.div
@@ -97,6 +101,7 @@ export default function Hero() {
           <Link
             href={CONTACT_INFO.whatsapp}
             target="_blank"
+            data-whatsapp-origin="hero"
             className="group relative bg-pink-500 text-white px-10 py-5 rounded-2xl font-black text-lg flex items-center gap-3 overflow-hidden transition-all hover:scale-105 active:scale-95"
           >
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />

@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/react';
 import Script from 'next/script';
+import AnalyticsConsent from '@/components/AnalyticsConsent';
+import { BUSINESS_STATS } from '@/lib/stats';
+import { SITE_URL } from '@/lib/site-url';
 import './globals.css';
 
 const inter = Inter({
@@ -14,12 +16,13 @@ const playfair = Playfair_Display({
   variable: '--font-display',
 });
 
-const BASE_URL = 'https://mamaedecoraatibaia.com.br';
-
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
+  metadataBase: new URL(SITE_URL),
   title: 'Mamãe Decora Atibaia | Pegue e Monte & Locação de Decoração',
-  description: 'A maior variedade de temas Pegue e Monte em Atibaia-SP. Mais de 300 temas exclusivos. Alugue, monte e encante com praticidade e sofisticação!',
+  description: `A maior variedade de temas Pegue e Monte em Atibaia-SP. ${BUSINESS_STATS.themes.value} temas exclusivos. Alugue, monte e encante com praticidade e sofisticação!`,
+  alternates: {
+    canonical: '/',
+  },
   keywords: [
     'Pegue e Monte Atibaia',
     'Locação de Decoração Atibaia',
@@ -32,11 +35,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Mamãe Decora Atibaia' }],
   openGraph: {
-    title: 'Mamãe Decora Atibaia | Mais de 300 Temas Pegue e Monte',
-    description: 'Transforme sua festa com nossos kits exclusivos. Mais de 300 temas. Retire em Atibaia-SP e monte você mesma em minutos.',
+    title: `Mamãe Decora Atibaia | ${BUSINESS_STATS.themes.value} Temas Pegue e Monte`,
+    description: `Transforme sua festa com nossos kits exclusivos. ${BUSINESS_STATS.themes.value} temas. Retire em Atibaia-SP e monte você mesma em minutos.`,
     type: 'website',
     locale: 'pt_BR',
-    url: BASE_URL,
+    url: SITE_URL,
     siteName: 'Mamãe Decora Atibaia',
     images: [
       {
@@ -50,7 +53,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Mamãe Decora Atibaia | Pegue e Monte',
-    description: 'Mais de 300 temas exclusivos para sua festa em Atibaia-SP. Retire, monte e encante!',
+    description: `${BUSINESS_STATS.themes.value} temas exclusivos para sua festa em Atibaia-SP. Retire, monte e encante!`,
     images: ['/mundo-bita.jpg'],
   },
   other: {
@@ -65,11 +68,11 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Mamãe Decora Atibaia',
-  description: 'Locação de decoração para festas pelo sistema Pegue e Monte em Atibaia-SP. Mais de 300 temas exclusivos.',
-  url: BASE_URL,
+  description: `Locação de decoração para festas pelo sistema Pegue e Monte em Atibaia-SP. ${BUSINESS_STATS.themes.value} temas exclusivos.`,
+  url: SITE_URL,
   telephone: '+5511977336703',
   email: 'ribekerana@gmail.com',
-  image: `${BASE_URL}/mundo-bita.jpg`,
+  image: `${SITE_URL}/mundo-bita.jpg`,
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
@@ -111,7 +114,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${inter.variable} ${playfair.variable}`}>
       <body className="bg-[#050505] text-white antialiased selection:bg-pink-500/30 selection:text-pink-200" suppressHydrationWarning>
         {children}
-        <Analytics />
+        <AnalyticsConsent />
         <Script
           id="json-ld-local-business"
           type="application/ld+json"

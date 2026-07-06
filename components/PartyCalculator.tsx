@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { Users, CheckCircle2, Info } from 'lucide-react';
 import Link from 'next/link';
 import { CONTACT_INFO } from './constants';
+import { trackEvent } from '@/lib/analytics';
 
 const kits = [
   {
@@ -42,10 +43,29 @@ const kits = [
 
 export default function PartyCalculator() {
   const [guests, setGuests] = useState(30);
+  const hasInteracted = useRef(false);
 
   const recommendedKit = kits.find(
     (kit) => guests >= kit.range[0] && guests <= kit.range[1]
   ) || kits[1];
+
+  useEffect(() => {
+    if (!hasInteracted.current) return;
+
+    const timeout = window.setTimeout(() => {
+      trackEvent('calculadora_uso', {
+        guest_count: guests,
+        recommended_kit: recommendedKit.id,
+      });
+    }, 600);
+
+    return () => window.clearTimeout(timeout);
+  }, [guests, recommendedKit.id]);
+
+  const handleGuestsChange = (value: number) => {
+    hasInteracted.current = true;
+    setGuests(value);
+  };
 
   return (
     <section id="calculadora" className="py-16 md:py-24 bg-[#080808] overflow-hidden">
@@ -77,7 +97,7 @@ export default function PartyCalculator() {
               max="100"
               step="5"
               value={guests}
-              onChange={(e) => setGuests(parseInt(e.target.value))}
+              onChange={(e) => handleGuestsChange(parseInt(e.target.value))}
               className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-pink-500 mb-12"
             />
 
@@ -123,6 +143,7 @@ export default function PartyCalculator() {
             <Link
               href={`${CONTACT_INFO.whatsapp}?text=Olá! A calculadora me recomendou o ${recommendedKit.name} para ${guests} pessoas. Gostaria de consultar a disponibilidade.`}
               target="_blank"
+              data-whatsapp-origin="calculator_result"
               className="w-full bg-pink-500 text-white py-5 rounded-2xl font-black text-center block hover:bg-pink-600 transition-all active:scale-95"
             >
               CONSULTAR DISPONIBILIDADE

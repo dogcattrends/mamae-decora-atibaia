@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, CheckCircle2, ArrowRight } from 'lucide-react';
+import { trackEvent } from '@/lib/analytics';
 
 export default function MiniLeadCapture() {
   const [email, setEmail] = useState('');
@@ -16,11 +17,13 @@ export default function MiniLeadCapture() {
     setLoading(true);
 
     try {
-      await fetch('/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nome, email }),
       });
+      if (!response.ok) throw new Error('Erro ao enviar.');
+      trackEvent('form_orcamento_submit', { form_id: 'mini_lead_capture' });
       setSent(true);
     } catch {
       setSent(true); // redirect to success anyway to not frustrate user

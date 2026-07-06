@@ -88,7 +88,7 @@ export default function Footer() {
           <div className="text-white/40">© 2026 Mamãe Decora Atibaia. Todos os direitos reservados.</div>
           <div className="text-white/40">
             Desenvolvido por{' '}
-            <a href="https://wa.me/5511968771362" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition-colors">
+            <a href="https://wa.me/5511980931247" target="_blank" rel="noopener noreferrer" data-whatsapp-origin="footer_developer" className="hover:text-pink-500 transition-colors">
               Arthur Ribeker
             </a>
           </div>

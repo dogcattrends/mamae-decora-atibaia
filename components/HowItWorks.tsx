@@ -2,11 +2,12 @@
 
 import { motion } from 'motion/react';
 import { Search, Package, Sparkles, RotateCcw } from 'lucide-react';
+import { BUSINESS_STATS } from '@/lib/stats';
 
 const steps = [
   {
     title: 'Escolha o Tema',
-    description: 'Navegue pelo nosso acervo com mais de 300 temas e escolha o seu favorito pelo WhatsApp.',
+    description: `Navegue pelo nosso acervo com ${BUSINESS_STATS.themes.copy} temas e escolha o seu favorito pelo WhatsApp.`,
     icon: Search,
   },
   {

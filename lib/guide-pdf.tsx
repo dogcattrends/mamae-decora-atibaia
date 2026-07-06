@@ -1,5 +1,6 @@
 import { Document, Page, View, Text, StyleSheet } from '@react-pdf/renderer';
 import React from 'react';
+import { SITE_HOSTNAME } from '@/lib/site-url';
 
 const PINK = '#ec4899';
 const PINK_DARK = '#be185d';
@@ -195,7 +196,7 @@ export function GuidePDF() {
           </Text>
           <View style={s.coverFooter}>
             <Text style={s.coverFooterText}>
-              mamaedecoraatibaia.com.br  ·  WhatsApp (11) 97733-6703  ·  Atibaia - SP
+              {SITE_HOSTNAME}  ·  WhatsApp (11) 97733-6703  ·  Atibaia - SP
             </Text>
           </View>
         </View>
@@ -227,8 +228,8 @@ export function GuidePDF() {
               Dica de Ouro
             </Text>
             <Text style={{ fontSize: 10, color: GRAY, lineHeight: 1.6 }}>
-              Reserve o kit com pelo menos 30 dias de antecedência, especialmente em
-              agosto, outubro e dezembro — os meses mais disputados do ano para festas infantis.
+              Reserve o kit com pelo menos 30 dias de antecedência, especialmente para
+              sábados, feriados e períodos de alta demanda.
             </Text>
           </View>
         </View>
@@ -326,7 +327,7 @@ export function GuidePDF() {
             </View>
           </View>
           <Text style={s.couponFooter}>
-            mamaedecoraatibaia.com.br{'\n'}
+            {SITE_HOSTNAME}{'\n'}
             Jardim Cerejeiras, Atibaia - SP{'\n'}
             {'★★★★★'}  Locação de decoração infantil · Sistema Pegue e Monte
           </Text>

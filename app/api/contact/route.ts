@@ -1,11 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { SITE_HOSTNAME, SITE_URL } from '@/lib/site-url';
 
 const COUPON = 'MAMAEDECORA10';
 const WA_NUMBER = '5511977336703';
 
 export async function POST(req: NextRequest) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  const resendApiKey = process.env.RESEND_API_KEY;
+  const fromEmail = process.env.RESEND_FROM_EMAIL;
+  const toEmail = process.env.RESEND_TO_EMAIL;
+
+  if (!resendApiKey || !fromEmail || !toEmail) {
+    return NextResponse.json(
+      { error: 'Serviço de e-mail não configurado.' },
+      { status: 503 },
+    );
+  }
+
+  const resend = new Resend(resendApiKey);
 
   try {
     const { nome, email, data } = await req.json();
@@ -28,8 +40,8 @@ export async function POST(req: NextRequest) {
 
     // Notificação para a Ana
     await resend.emails.send({
-      from: 'Mamãe Decora <onboarding@resend.dev>',
-      to: ['ribekerana@gmail.com'],
+      from: `Mamãe Decora <${fromEmail}>`,
+      to: [toEmail],
       replyTo: email,
       subject: `🎉 Novo lead: ${nome}`,
       html: `
@@ -43,14 +55,14 @@ export async function POST(req: NextRequest) {
           <a href="https://wa.me/${WA_NUMBER}?text=${waMsg}" style="background:#25D366;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block;">
             Responder no WhatsApp
           </a>
-          <p style="color:#666;font-size:12px;margin-top:24px;">Lead capturado via mamaedecoraatibaia.com.br</p>
+          <p style="color:#666;font-size:12px;margin-top:24px;">Lead capturado via ${SITE_HOSTNAME}</p>
         </div>
       `,
     });
 
     // Confirmação para o lead
     await resend.emails.send({
-      from: 'Ana — Mamãe Decora <onboarding@resend.dev>',
+      from: `Ana — Mamãe Decora <${fromEmail}>`,
       to: [email],
       subject: `Oi ${nome.split(' ')[0]}! Seu cupom de 10% OFF chegou 🎀`,
       html: `
@@ -72,7 +84,7 @@ export async function POST(req: NextRequest) {
           </p>
 
           <div style="margin:24px 0;text-align:center;">
-            <a href="https://mamaedecoraatibaia.com.br/api/guia-pdf"
+            <a href="${SITE_URL}/api/guia-pdf"
               style="background:#1a0a10;color:#ec4899;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:900;font-size:15px;display:inline-block;border:2px solid #ec4899;">
               ⬇ Baixar Guia de Planejamento (PDF)
             </a>

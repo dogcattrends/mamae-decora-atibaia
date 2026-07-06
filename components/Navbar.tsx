@@ -67,6 +67,7 @@ export default function Navbar() {
           <Link
             href={CONTACT_INFO.whatsapp}
             target="_blank"
+            data-whatsapp-origin="navbar_desktop"
             className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-bold hover:bg-pink-500 hover:text-white transition-all active:scale-95"
           >
             Orçamento
@@ -107,6 +108,7 @@ export default function Navbar() {
                 <Link
                   href={CONTACT_INFO.whatsapp}
                   target="_blank"
+                  data-whatsapp-origin="navbar_mobile"
                   className="bg-pink-500 text-white text-center py-4 rounded-2xl font-bold"
                 >
                   Falar no WhatsApp

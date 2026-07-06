@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Search, Filter, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { THEMES, CONTACT_INFO } from './constants';
+import { BUSINESS_STATS } from '@/lib/stats';
 
 const categories = ['Todos', 'Infantil', 'Personagens', 'Batizado', 'Adulto'];
 
@@ -30,7 +31,7 @@ export default function ThemesShowcase() {
               NOSSO <span className="text-pink-500">ACERVO</span>
             </h2>
             <p className="text-white/40 max-w-md">
-              Explore mais de 300 temas exclusivos. Se não encontrar o que procura, nós criamos para você.
+              Explore {BUSINESS_STATS.themes.copy} temas exclusivos. Se não encontrar o que procura, nós criamos para você.
             </p>
           </div>
 
@@ -94,6 +95,7 @@ export default function ThemesShowcase() {
                   <Link
                     href={`${CONTACT_INFO.whatsapp}?text=Olá! Gostaria de consultar a disponibilidade do tema: ${theme.name}`}
                     target="_blank"
+                    data-whatsapp-origin="catalog_theme"
                     className="inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-pink-400 transition-colors"
                   >
                     Consultar Disponibilidade <ArrowRight className="w-4 h-4" />

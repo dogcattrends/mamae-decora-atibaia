@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Sparkles, ArrowLeft } from 'lucide-react';
+import { BUSINESS_STATS } from '@/lib/stats';
 
 export default function NotFound() {
   return (
@@ -14,7 +15,7 @@ export default function NotFound() {
         <h1 className="font-display text-7xl md:text-9xl font-black mb-4 text-white/10">404</h1>
 
         <p className="text-white/60 text-lg mb-10 leading-relaxed">
-          Ops! Essa página não existe. Mas a gente tem mais de 300 temas esperando por você.
+          Ops! Essa página não existe. Mas a gente tem {BUSINESS_STATS.themes.copy} temas esperando por você.
         </p>
 
         <Link

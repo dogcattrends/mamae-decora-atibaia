@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Send, Gift } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { BUSINESS_STATS } from '@/lib/stats';
+import { trackEvent } from '@/lib/analytics';
 
 export default function LeadForm() {
   const router = useRouter();
@@ -30,6 +32,7 @@ export default function LeadForm() {
         throw new Error(json.error || 'Erro ao enviar.');
       }
 
+      trackEvent('form_orcamento_submit', { form_id: 'lead_guide' });
       router.push('/obrigado');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erro ao enviar. Tente novamente.');
@@ -59,7 +62,7 @@ export default function LeadForm() {
                   <div key={i} className="w-8 h-8 rounded-full border-2 border-[#050505] bg-white/10" />
                 ))}
               </div>
-              <span>+450 mães já baixaram o guia este mês</span>
+              <span>{BUSINESS_STATS.guideDownloadsThisMonth.copy}</span>
             </div>
           </div>
 

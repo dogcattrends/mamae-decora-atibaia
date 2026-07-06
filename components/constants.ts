@@ -1,3 +1,5 @@
+import { BUSINESS_STATS } from '@/lib/stats';
+
 export const CONTACT_INFO = {
   phone: '+5511977336703',
   whatsapp: 'https://wa.me/5511977336703',
@@ -21,7 +23,7 @@ export const THEMES = [
   { id: 12, name: 'Stitch e Angel', category: 'Personagens', image: '/stitch-e-angel.png' },
   { id: 13, name: 'Pool Party', category: 'Infantil', image: '/pool-party.png' },
   { id: 14, name: 'Cabaret', category: 'Adulto', image: '/cabaret.png' },
-  { id: 15, name: 'Dragon Ball Z', category: 'Personagens', image: '/dragon-ball-z.png' },
+  { id: 15, name: 'Stitch', category: 'Personagens', image: '/stitch.png' },
   { id: 16, name: 'Hello Kitty', category: 'Personagens', image: '/hello-kitty.png' },
   { id: 17, name: 'Hot Wheels', category: 'Personagens', image: '/hotwells.png' },
   { id: 18, name: 'Magali', category: 'Personagens', image: '/magali.png' },
@@ -40,13 +42,6 @@ export const THEMES = [
   { id: 31, name: 'O Maior Pintor do Mundo', category: 'Infantil', image: '/o-maior-pintor-do-mundo.png' },
   { id: 32, name: 'São Paulo FC', category: 'Adulto', image: '/Sao-Paulo-Futebol-Clube.png' },
   { id: 33, name: 'Aniversário Adulto', category: 'Adulto', image: '/aniversario-adulto.png' },
-];
-
-export const STATS = [
-  { label: 'Temas Exclusivos', value: '300+' },
-  { label: 'Festas Realizadas', value: '2.000+' },
-  { label: 'Anos de História', value: '5' },
-  { label: 'Clientes Felizes', value: '1.500+' },
 ];
 
 export const FAQS = [
@@ -88,6 +83,6 @@ export const FAQS = [
   },
   {
     question: 'Posso escolher um tema que não está no catálogo?',
-    answer: 'Sim! Temos mais de 300 temas disponíveis. Se não encontrar o que procura no site, entre em contato pelo WhatsApp — é muito provável que tenhamos ou consigamos criar para você.',
+    answer: `Sim! Temos ${BUSINESS_STATS.themes.copy} temas disponíveis. Se não encontrar o que procura no site, entre em contato pelo WhatsApp — é muito provável que tenhamos ou consigamos criar para você.`,
   },
 ];

@@ -38,6 +38,7 @@ export default function WhatsAppBroadcast() {
           <Link
             href={`${CONTACT_INFO.whatsapp}?text=${BROADCAST_MSG}`}
             target="_blank"
+            data-whatsapp-origin="broadcast"
             className="shrink-0 flex items-center gap-2 bg-pink-500 text-white px-8 py-4 rounded-2xl font-black hover:bg-pink-600 transition-all active:scale-95 whitespace-nowrap"
           >
             Entrar na lista

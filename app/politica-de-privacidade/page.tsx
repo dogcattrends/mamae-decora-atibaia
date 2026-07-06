@@ -10,10 +10,14 @@ export default function Privacidade() {
           </section>
           <section>
             <h2 className="text-xl font-bold text-white mb-4">2. Uso das Informações</h2>
-            <p>Seus dados são utilizados exclusivamente pela Mamãe Decora Atibaia para comunicação direta e não são compartilhados com terceiros.</p>
+            <p>Seus dados de contato são utilizados pela Mamãe Decora Atibaia para comunicação direta e envio dos materiais solicitados.</p>
           </section>
           <section>
-            <h2 className="text-xl font-bold text-white mb-4">3. Segurança</h2>
+            <h2 className="text-xl font-bold text-white mb-4">3. Cookies e Analytics</h2>
+            <p>Google Analytics, Google Tag Manager e Vercel Analytics só são carregados após seu aceite no banner de consentimento. Esses serviços processam dados de navegação para medir o uso e melhorar o site.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-4">4. Segurança</h2>
             <p>Implementamos medidas de segurança para proteger suas informações pessoais contra acesso não autorizado.</p>
           </section>
         </div>
